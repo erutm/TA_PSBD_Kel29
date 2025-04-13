@@ -32,9 +32,9 @@
           <div class="mb-3">
             <label for="nama_barber" class="form-label">Pilih Barber</label>
             <select class="form-control" id="nama_barber" aria-describedby="nama_barber" name="nama_barber" required>
-              <option value="Fawwaz">Fawwaz</option>
-              <option value="Rafael">Rafael</option>
-              <option value="Yudi">Yudi</option>
+              @foreach ($barbers as $barber)
+                <option value="{{ $barber->nama_barber }}">{{ $barber->nama_barber }}</option>
+              @endforeach
             </select>
           </div>
           <div class="mb-3">
