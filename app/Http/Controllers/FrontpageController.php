@@ -18,6 +18,8 @@ class FrontpageController extends Controller
         // return view('frontpage.pages.product', [
         //     'pakets' => Paket::paginate(8)
         // ]);
+        $barbers = Barber::all();
+
         if(request('nama_paket')){
             $nama_paket = Paket::firstWhere('nama_paket', request('nama_paket'));
         }
@@ -26,7 +28,8 @@ class FrontpageController extends Controller
             $keterangan_paket = Paket::firstWhere('nama_paket', request('nama_paket'));
         }
         return view("frontpage.pages.product", [
-            "pakets" => Paket::latest()->filter(request(['search','keterangan_paket','nama_paket']))->paginate(8)->withQueryString()
+            "pakets" => Paket::latest()->filter(request(['search','keterangan_paket','nama_paket']))->paginate(8)->withQueryString(),
+            "barbers" => $barbers
         ]);
     }
 
