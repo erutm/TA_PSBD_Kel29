@@ -20,9 +20,9 @@
                             <th scope="col">No. Reservasi</th>
                             <th scope="col">Nama Pemesan</th>
                             <th scope="col">No Hp Pemesan</th>
-                            <th scope="col">Barberman</th>
+                            <th scope="col">Barber</th>
                             <th scope="col">Waktu Potong</th>
-                            <th scope="col">Tanggal Pemesanan</th>
+                            <th scope="col">Waktu Pemesanan</th>
                             <th scope="col" class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -35,7 +35,7 @@
                             <td>{{ $reservasi->no_pelanggan }}</td>
                             <td>{{ $reservasi->nama_barber }}</td>
                             <td>{{ $reservasi->jam_potong }}</td>
-                            <td>{{ $reservasi->created_at->toDateString() }}</td>
+                            <td>{{ $reservasi->created_at}}</td>
                             <td class="d-flex justify-content-center">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#detail{{ $reservasi->id }}" class="btn btn-warning">Detail</a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#approve{{ $reservasi->id }}" class="mx-1 btn btn-success">Menyetujui</a>
