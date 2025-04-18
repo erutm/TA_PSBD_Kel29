@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -42,15 +42,33 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         {{-- AOS --}}
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        
+        <style>
+            html, body {
+                height: 100%;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            main {
+                flex: 1 0 auto;
+            }
+            footer {
+                flex-shrink: 0;
+            }
+        </style>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- Navigation-->
         @include('frontpage.layouts.navbar')
 
         {{-- Container --}}
-        <main>
+        <main class="flex-grow-1">
             @yield('container')
         </main>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -72,6 +90,9 @@
             <script src="js/main.js"></script>
             <script src="js/scripts.js"></script>
             <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         {{-- AOS --}}
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     </body>
