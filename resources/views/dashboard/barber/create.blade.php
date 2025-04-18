@@ -12,7 +12,7 @@
         <div class="card mb-4 mx-5">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Barberman
+                Barber
             </div>
             <div class="row mb-5 mx-3 mt-3">
                 <div class="col-lg-8">
