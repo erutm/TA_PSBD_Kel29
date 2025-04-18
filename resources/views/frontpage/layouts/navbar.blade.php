@@ -5,11 +5,17 @@
           <img src="/images/soviet.png" alt="" length="80" height="28" class="d-inline-block align-text-top"> Barbershop Raka</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item {{ Request::is('/')? 'active' : '' }}"><a class="nav-link" aria-current="page" href="/">Halaman Utama</a></li>
-                <li class="nav-item {{ Request::is('product*')? 'active' : '' }}"><a class="nav-link" href="/product">Pilihan Paket</a></li>
-                <li class="nav-item {{ Request::is('about*')? 'active' : '' }}"><a class="nav-link" href="/about">Tentang</a></li>
-            </ul>
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+                <a class="nav-link" aria-current="page" href="/">Halaman Utama</a>
+            </li>
+            <li class="nav-item {{ Request::is('product*') ? 'active' : '' }}">
+                <a class="nav-link" href="/product">Pilihan Paket</a>
+            </li>
+            <li class="nav-item {{ Request::is('about*') ? 'active' : '' }}">
+                <a class="nav-link" href="/about">Tentang</a>
+            </li>
+        </ul>
             <ul class="navbar-nav ms-auto">
             @auth
             <li class="nav-item dropdown">
