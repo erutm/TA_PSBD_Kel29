@@ -24,7 +24,7 @@
                     : {{ $reservasi->nama_barber }} <br />
                     : {{ $reservasi->jam_potong }} <br />
                     : {{ $reservasi->harga }}<br />
-                    : {{ $reservasi->created_at->toDateString() }} <br />
+                    : {{ $reservasi->created_at}} <br />
                 </div>
             </div>
         </div>
