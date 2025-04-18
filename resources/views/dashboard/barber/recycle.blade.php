@@ -13,7 +13,7 @@
                 <thead>
                     <tr>
                     <th scope="col">No.</th>
-                    <th scope="col">Nama Barberman</th>
+                    <th scope="col">Nama Barber</th>
                     <th scope="col">No. Handphone</th>
                     <th scope="col">Umur</th>
                     <th scope="col" class="text-center">Action</th>
