@@ -9,7 +9,7 @@
         </ol>
 
         <div class="table-responsive col-lg-8">
-            <a href="/dashboard/barbers/create" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Barberman</a>
+            <a href="/dashboard/barbers/create" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Barber</a>
             <a href="/dashboard/barbers/recycle" class="btn btn-success mb-3"><i class="fas fa-trash"></i> Tempat Sampah</a>
             <div class="card mb-4">
                 <div class="card-header"><i class="fas fa-bars"></i> Barberman</div>
@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Nama Barberman</th>
+                            <th scope="col">Nama Barber</th>
                             <th scope="col">No. Handphone</th>
                             <th scope="col">Umur</th>
                             <th scope="col" class="text-center">Action</th>
