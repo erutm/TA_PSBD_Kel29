@@ -30,7 +30,7 @@
           <div class="col-sm-8">: {{ $faktur->harga }}</div>
 
           <div class="col-sm-4 fw-bold">Tanggal</div>
-          <div class="col-sm-8">: {{ $faktur->created_at->toDateString() }}</div>
+          <div class="col-sm-8">: {{ $faktur->created_at}}</div>
         </div>
       </div>
       <div class="modal-footer">
