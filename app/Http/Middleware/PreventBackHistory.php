@@ -16,6 +16,12 @@ class PreventBackHistory
      */
     public function handle(Request $request, Closure $next)
     {
+        // Skip this middleware for routes that don't require authentication
+        if ($request->is('product') || $request->is('product/search')) {
+            return $next($request);
+        }
+
+        // Apply prevent back history for other routes
         $response = $next($request);
         return $response->header('Cache-Control','no-cache, no-store, max-age=0, must-revalidate')
                         ->header('Pragma','no-cache')
