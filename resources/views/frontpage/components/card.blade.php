@@ -1,19 +1,36 @@
-<div class="card mb-3" style="width: 15rem;">
-    <!-- Product image-->
-    <img class="card-img-top" src="https://i.pinimg.com/564x/a4/93/25/a493253f2b9b3be6ef48886bbf92af58.jpg" alt="..." />
-    {{-- <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." /> --}}
-    <!-- Product details-->
-    <div class="card-body p-4">
-        <div class="text-center">
-            <!-- Product name-->
-            <h5 class="fw-bolder">{{ $paket->nama_paket }}</h5>
-            <h5 class="fw-bolder">{{ $paket->keterangan_paket }}</h5>
-            <!-- Product price-->
-            Rp. {{ $paket->harga }}
+<!-- Modal -->
+<div class="modal fade" id="detail{{ $reservasi->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detail Reservasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    Paket<br />
+                    Pemesan <br />
+                    No Hp<br />
+                    Barberman<br />
+                    Jam<br />
+                    Harga <br />
+                    Tanggal <br />
+                </div>
+                <div class="col-sm-8">
+                    : {{ $reservasi->nama_paket }} <br />
+                    : {{ $reservasi->nama_pelanggan }} <br />
+                    : {{ $reservasi->no_pelanggan }} <br />
+                    : {{ $reservasi->nama_barber }} <br />
+                    : {{ $reservasi->jam_potong }} <br />
+                    : {{ $reservasi->harga }}<br />
+                    : {{ $reservasi->created_at}} <br />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
-    <!-- Product actions-->
-    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-        <div class="text-center"><button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#beliModal{{ $paket->id }}">Pesan</button></div>
-    </div>
-</div>
+  </div>
