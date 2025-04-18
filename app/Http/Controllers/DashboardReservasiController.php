@@ -4,16 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardReservasiController extends Controller
 {
 
     public function index()
     {
-        return view('dashboard.reservasi.index',[
-            'reservasis' => Reservasi::where('isApprove', 0)->get()
-        ]);
+        $reservasis = DB::table('reservasis')
+            ->join('barbers', 'reservasis.id_barber', '=', 'barbers.id')
+            ->join('pakets', 'reservasis.id_paket', '=', 'pakets.id')
+            ->where('reservasis.isApprove', 0)
+            ->select(
+                'reservasis.*',
+                'barbers.nama_barber',
+                'pakets.nama_paket',
+                'pakets.harga',
+                'pakets.keterangan_paket'
+            )
+            ->get();
+
+        return view('dashboard.reservasi.index', compact('reservasis'));
     }
+
 
     public function store(Request $request)
     {
@@ -28,8 +41,10 @@ class DashboardReservasiController extends Controller
         ]);
 
         Reservasi::create($validatedData);
-        return redirect('/product');
+
+        return redirect('/product')->with('success', 'Reservasi berhasil dilakukan!');
     }
+
     
     public function update(Request $request, Reservasi $reservasi)
     {
