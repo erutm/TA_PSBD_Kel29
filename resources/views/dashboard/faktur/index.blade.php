@@ -4,7 +4,7 @@
 <div id="layoutSidenav_content">
 <main>
   <div class="container-fluid px-4">
-    <h1 class="mt-4">Catatan Rincian </h1>
+    <h1 class="mt-4">Catatan Rincian</h1>
     <ol class="breadcrumb mb-4">
       <li class="breadcrumb-item active">Dashboard</li>
     </ol>
@@ -18,6 +18,13 @@
               <tr>
                 <th>#</th>
                 <th>No. Reservasi</th>
+                <th>Nama Pelanggan</th>
+                <th>No. Pelanggan</th>
+                <th>Nama Paket</th>
+                <th>Deskripsi</th>
+                <th>Barber</th>
+                <th>Jam Potong</th>
+                <th>Harga</th>
                 <th>Disetujui Oleh</th>
                 <th>Tanggal Pemesanan</th>
                 <th class="text-center">Aksi</th>
@@ -28,13 +35,20 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $faktur->id }}</td>
+                <td>{{ $faktur->nama_pelanggan }}</td>
+                <td>{{ $faktur->no_pelanggan }}</td>
+                <td>{{ $faktur->nama_paket}}</td>
+                <td>{{ $faktur->keterangan_paket}}</td>
+                <td>{{ $faktur->nama_barber}}</td>
+                <td>{{ $faktur->jam_potong }}</td>
+                <td>{{ $faktur->harga}}</td>
                 <td>{{ $faktur->persetujuan }}</td>
-                <td>{{ $faktur->created_at->toDateString() }}</td>
+                <td>{{ $faktur->created_at}}</td>
                 <td class="d-flex justify-content-center">
                   <a href="#" data-bs-toggle="modal" data-bs-target="#detail{{ $faktur->id }}" class="btn btn-warning mx-1">Detail</a>
                 </td>
               </tr>
-              @include('dashboard.faktur.modal')
+              @include('dashboard.faktur.modal', ['faktur' => $faktur])
               @endforeach
             </tbody>
           </table>
