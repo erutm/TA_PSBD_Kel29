@@ -3,7 +3,7 @@
 <div id="layoutSidenav_content">
     <main>
     <div class="container-fluid px-4">
-    <h1 class="mt-4">Edit Data Barberman</h1>
+    <h1 class="mt-4">Edit Data Barber</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard</li>
     </ol>
@@ -20,14 +20,14 @@
                         @method('PUT')
                         @csrf
                         <div class="mb-3">
-                        <label for="nama_barber" class="form-label">Nama Barberman</label>
+                        <label for="nama_barber" class="form-label">Nama Barber</label>
                         <input type="text" name="nama_barber" class="form-control" id="nama_barber" value="{{ old('nama_barber', $barber->nama_barber) }}">
-                        <div class="form-text">Nama Barberman Baru</div>
+                        <div class="form-text">Nama Barber Baru</div>
                         </div>
                         <div class="mb-3">
-                        <label for="nohp_barber" class="form-label">No. Barberman</label>
+                        <label for="nohp_barber" class="form-label">No. Barber</label>
                         <input type="text" name="nohp_barber" class="form-control" id="nohp_barber" value="{{ old('nohp_barber', $barber->nohp_barber) }}">
-                        <div class="form-text">No. Handphone Barberman Baru</div>
+                        <div class="form-text">No. Handphone Barber Baru</div>
                         </div>
                         <div class="mb-3">
                             <label for="umur" class="form-label">Umur Barber</label>
