@@ -15,23 +15,19 @@ class FrontpageController extends Controller
     }
 
     public function product(){
-        // return view('frontpage.pages.product', [
-        //     'pakets' => Paket::paginate(8)
-        // ]);
-        $barbers = Barber::all();
-
-        if(request('nama_paket')){
-            $nama_paket = Paket::firstWhere('nama_paket', request('nama_paket'));
-        }
-
-        if(request('keterangan_paket')){
-            $keterangan_paket = Paket::firstWhere('nama_paket', request('nama_paket'));
-        }
-        return view("frontpage.pages.product", [
-            "pakets" => Paket::latest()->filter(request(['search','keterangan_paket','nama_paket']))->paginate(8)->withQueryString(),
-            "barbers" => $barbers
+        $pakets = Paket::latest()
+            ->filter(request(['search','keterangan_paket','nama_paket']))
+            ->paginate(8)
+            ->withQueryString();
+    
+        $barbers = Barber::all(); // Ambil semua data barber
+    
+        return view('frontpage.pages.product', [
+            'pakets' => $pakets,
+            'barbers' => $barbers // Kirimkan ke view
         ]);
     }
+    
 
     public function showProduct(Request $request){
         $pakets = Paket::all();
@@ -39,24 +35,26 @@ class FrontpageController extends Controller
             $pakets = Paket::where('keterangan_paket','LIKE','%'.$request->keyword.'%')->get();
         }
         return response()->json([
-            'pakets' => $paket
+            'pakets' => $pakets
         ]);
     }
     
-    public function beliProduk(Request $request){
+    public function beliProduk(Request $request)
+    {
         $validatedData = $request->validate([
-            'nama_paket' => ['required'],
-            'keterangan_paket' => ['required'],
-            'nama_pelanggan' => ['required'],
-            'no_pelanggan' => ['required'],
-            'nama_barber' => ['required', 'max:255'],
-            'jam_potong' => ['required', 'max:255'],
-            'harga' => ['required']
+            'id_paket' => ['required', 'exists:pakets,id'],
+            'id_barber' => ['required', 'exists:barbers,id'],
+            'nama_pelanggan' => ['required', 'string', 'max:255'],
+            'no_pelanggan' => ['required', 'string', 'max:15'],
+            'jam_potong' => ['required', 'string', 'max:255'],
         ]);
 
-        Invoice::create($validatedData);
-        return redirect('/');
+        // Simpan reservasi
+        Reservasi::create($validatedData);
+
+        return redirect('/product')->with('success', 'Reservasi berhasil dilakukan!');
     }
+
 
     public function about(){
         return view('frontpage.pages.about');
