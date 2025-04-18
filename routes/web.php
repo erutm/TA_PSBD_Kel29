@@ -27,7 +27,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/about',[FrontpageController::class, 'about']);
 Route::get('/product', [FrontpageController::class, 'product']);
 Route::post('/product/search',[FrontpageController::class,'showProduct'])->name('product.search');
-Route::post('/product', [FrontpageController::class, 'beliProduk']);
+Route::post('/product/beli', [FrontpageController::class, 'beliProduk']);
 
 Route::middleware(['auth'])->group(function () {
 
